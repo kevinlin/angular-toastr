@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-ng6-toastr": {
+    "angular-toastr": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-ng6-toastr",
+            "outputPath": "dist/angular-toastr",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -23,6 +23,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -50,18 +51,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-ng6-toastr:build"
+            "browserTarget": "angular-toastr:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-ng6-toastr:build:production"
+              "browserTarget": "angular-toastr:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-ng6-toastr:build"
+            "browserTarget": "angular-toastr:build"
           }
         },
         "test": {
@@ -95,7 +96,7 @@
         }
       }
     },
-    "angular-ng6-toastr-e2e": {
+    "angular-toastr-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -103,11 +104,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular-ng6-toastr:serve"
+            "devServerTarget": "angular-toastr:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angular-ng6-toastr:serve:production"
+              "devServerTarget": "angular-toastr:serve:production"
             }
           }
         },
@@ -123,5 +124,5 @@
       }
     }
   },
-  "defaultProject": "angular-ng6-toastr"
+  "defaultProject": "angular-toastr"
 }
