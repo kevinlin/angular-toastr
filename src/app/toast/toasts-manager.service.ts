@@ -26,7 +26,8 @@ export class ToastsManager {
     private ngZone: NgZone,
     private appRef: ApplicationRef,
     private options: ToastOptions
-  ) {}
+  ) {
+  }
 
   setRootViewContainerRef(vRef: ViewContainerRef) {
     this._rootViewContainerRef = vRef;
@@ -53,15 +54,15 @@ export class ToastsManager {
         }
 
         // get options providers
-        let providers = ReflectiveInjector.resolve([
+        const providers = ReflectiveInjector.resolve([
           { provide: ToastOptions, useValue: this.options }
         ]);
 
         // create and load ToastContainerComponent
-        let toastFactory = this.componentFactoryResolver.resolveComponentFactory(
+        const toastFactory = this.componentFactoryResolver.resolveComponentFactory(
           ToastContainerComponent
         );
-        let childInjector = ReflectiveInjector.fromResolvedProviders(
+        const childInjector = ReflectiveInjector.fromResolvedProviders(
           providers,
           this._rootViewContainerRef.parentInjector
         );
@@ -70,8 +71,8 @@ export class ToastsManager {
           this._rootViewContainerRef.length,
           childInjector
         );
-        this.container.instance.onToastClicked = (toast: Toast) => {
-          this._onToastClicked(toast);
+        this.container.instance.onToastClicked = (newToast: Toast) => {
+          this._onToastClicked(newToast);
         };
 
         this.container.instance.onExit().subscribe(() => {
@@ -84,7 +85,7 @@ export class ToastsManager {
   }
 
   createTimeout(toast: Toast): any {
-    let task: number;
+    let task = 0;
     this.ngZone.runOutsideAngular(() => {
       task = setTimeout(
         () => this.ngZone.run(() => this.clearToast(toast)),
@@ -131,14 +132,14 @@ export class ToastsManager {
 
   clearToast(toast: Toast) {
     if (this.container) {
-      let instance = this.container.instance;
+      const instance = this.container.instance;
       instance.removeToast(toast);
     }
   }
 
   clearAllToasts() {
     if (this.container) {
-      let instance = this.container.instance;
+      const instance = this.container.instance;
       instance.removeAllToasts();
       this.dispose();
     }
