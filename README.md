@@ -27,21 +27,21 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-### ToastOptions Configurations
+## ToastOptions Configurations
 
 By default, the toastr will show up at top right corner of the page view, and will automatically dismiss in 3 seconds. 
 You can configure the toasts using ToastOptions class. Currently we support following options:
 
-#####toastLife: (number)
+## toastLife: (number)
 Determines how long an auto-dismissed toast will be shown. Defaults to 3000 miliseconds.
  
-#####autoDismiss: (boolean)
+### autoDismiss: (boolean)
 Determines whether toast should dismiss itself. If false, the toast will be dismissed when user tap on toast. Defaults to true.
 
-#####maxShown: (number)
+### maxShown: (number)
 Determines maximum number of toasts can be shown on the page in the same time. Defaults to 5.
 
-#####positionClass: (string)
+### positionClass: (string)
 Determines where on the page the toasts should be shown. Here are list of values: 
 * toast-top-right (Default)
 * toast-top-center
@@ -52,10 +52,10 @@ Determines where on the page the toasts should be shown. Here are list of values
 * toast-bottom-left
 * toast-bottom-full-width
 
-#####messageClass: (string)
+### messageClass: (string)
 CSS class for message within toast.
 
-#####titleClass: (string)
+### titleClass: (string)
 CSS class for title within toast.
 
 Use Angular dependency inject for custom configurations. Here is code when you bootstrap your app:
